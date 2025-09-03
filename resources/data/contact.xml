@@ -1,0 +1,34 @@
+<XML version="1.0" encoding="UTF-8">
+<contact>
+	<name>JOSE</name>
+	<code>001</code>
+	<phoneNumber>3227389121</phoneNumber>
+	<email>jose.charris</email>
+	<address>Calle 20</address>
+	<idAddress>127.0.0.1</idAddress>
+</contact>
+<contact>
+	<name>ANGEL</name>
+	<code>002</code>
+	<phoneNumber>3227389***</phoneNumber>
+	<email>angel.delarosa</email>
+	<address>Calle XXXX</address>
+	<idAddress>127.0.0.1</idAddress>
+</contact>
+<contact>
+	<name>ALEJANDRO</name>
+	<code>003</code>
+	<phoneNumber>3227389XXX</phoneNumber>
+	<email>alejandro.castaneda</email>
+	<address>Calle XXXX</address>
+	<idAddress>127.0.0.1</idAddress>
+</contact>
+<contact>
+	<name>JORGE</name>
+	<code>004</code>
+	<phoneNumber>322738AAAA</phoneNumber>
+	<email>jorge.abril</email>
+	<address>Calle XXXX</address>
+	<idAddress>127.0.0.1</idAddress>
+</contact>
+</XML>
