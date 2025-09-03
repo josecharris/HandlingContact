@@ -1,0 +1,29 @@
+# Archivos de Eclipse
+.classpath
+.project
+.settings/
+
+# Archivos compilados
+bin/
+target/
+*.class
+
+# Archivos temporales
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Librerías descargadas
+*.jar
+*.war
+*.ear
+
+# IDEs adicionales
+.idea/
+*.iml
+.vscode/
