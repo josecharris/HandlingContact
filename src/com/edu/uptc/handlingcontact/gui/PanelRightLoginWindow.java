@@ -19,6 +19,8 @@ public class PanelRightLoginWindow extends JPanel {
 	private JButton buttonLogin;
 	private JLabel lblMessageError;
 	
+	private MainWindow mainWindow;
+	
 	public PanelRightLoginWindow() {
 		setBackground(Color.WHITE);
 		setPreferredSize(new Dimension(484, 70));
@@ -33,6 +35,13 @@ public class PanelRightLoginWindow extends JPanel {
 		this.buttonLogin = new JButton("Aceptar");
 		this.buttonLogin.setBackground(GUIUtils.getPrincipalColor());
 		this.buttonLogin.setForeground(Color.WHITE);
+		
+		this.mainWindow = new MainWindow();
+		
+		/* Asignamos un nombre de evento */
+		this.buttonLogin.setActionCommand(HandlingEventsLoginWindow.VALIDATE_LOGIN);
+		/* Asignamos un objeto manejador de eventos */
+		this.buttonLogin.addActionListener(new HandlingEventsLoginWindow(this));
 		this.lblMessageError = new JLabel("El usuario no se encuentra registrado.");
 		this.lblMessageError.setForeground(Color.RED);
 		this.lblMessageError.setHorizontalAlignment(SwingConstants.CENTER);
@@ -62,6 +71,69 @@ public class PanelRightLoginWindow extends JPanel {
 		this.add(panelSeparator5);
 		this.add(lblMessageError);
 	}
-	
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+
+	public void setLblTitle(JLabel lblTitle) {
+		this.lblTitle = lblTitle;
+	}
+
+	public JLabel getLblUserName() {
+		return lblUserName;
+	}
+
+	public void setLblUserName(JLabel lblUserName) {
+		this.lblUserName = lblUserName;
+	}
+
+	public StyledTextField getInputUserName() {
+		return inputUserName;
+	}
+
+	public void setInputUserName(StyledTextField inputUserName) {
+		this.inputUserName = inputUserName;
+	}
+
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+
+	public void setLblPassword(JLabel lblPassword) {
+		this.lblPassword = lblPassword;
+	}
+
+	public StyledTextField getInputPassword() {
+		return inputPassword;
+	}
+
+	public void setInputPassword(StyledTextField inputPassword) {
+		this.inputPassword = inputPassword;
+	}
+
+	public JButton getButtonLogin() {
+		return buttonLogin;
+	}
+
+	public void setButtonLogin(JButton buttonLogin) {
+		this.buttonLogin = buttonLogin;
+	}
+
+	public JLabel getLblMessageError() {
+		return lblMessageError;
+	}
+
+	public void setLblMessageError(JLabel lblMessageError) {
+		this.lblMessageError = lblMessageError;
+	}
+
+	public MainWindow getMainWindow() {
+		return mainWindow;
+	}
+
+	public void setMainWindow(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
+	}
 
 }
