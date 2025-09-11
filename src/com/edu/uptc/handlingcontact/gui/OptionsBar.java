@@ -28,7 +28,7 @@ public class OptionsBar extends JMenuBar{
 	private JMenuItem optExportJSON;
 	private JMenuItem optExportSer;
 	
-	public OptionsBar() {
+	public OptionsBar(MainWindow mainwindow) {
 		this.optMenuHandlinContact = new JMenu("Administrar Contacto");
 		this.optImport = new JMenu("Importar");
 		this.optExport = new JMenu("Exportar");
@@ -40,7 +40,7 @@ public class OptionsBar extends JMenuBar{
 		this.optImportPlain = new JMenuItem("Archivo plano");
 		/* Se le asigna el evento al importado de archivo plano */
 		this.optImportPlain.setActionCommand(HandlingEventsMainWindow.LOAD_CONTACT_PLAIN);
-		this.optImportPlain.addActionListener(new HandlingEventsMainWindow());
+		this.optImportPlain.addActionListener(new HandlingEventsMainWindow(mainwindow));
 		
 		this.optImportCSV = new JMenuItem("CSV");
 		this.optImportXML = new JMenuItem("XML");

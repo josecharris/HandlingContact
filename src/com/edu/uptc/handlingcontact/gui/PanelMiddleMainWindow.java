@@ -19,8 +19,6 @@ public class PanelMiddleMainWindow extends JPanel {
 		setBorder(new EmptyBorder(40, 10, 10, 10));
 		this.buildComponents();
 		this.addComponents();
-		Object[] row = new Object[] {"Ejemplo1", "Ejemplo 1", "Ejemplo 1", "Ejemplo 1"};
-		this.addRow(row);
 	}
 	
 	
@@ -57,7 +55,7 @@ public class PanelMiddleMainWindow extends JPanel {
 	public JTable getTable() {
 		return table;
 	}
-
+	
 
 	public void setTable(JTable table) {
 		this.table = table;
