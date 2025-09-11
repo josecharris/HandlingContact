@@ -43,7 +43,11 @@ public class OptionsBar extends JMenuBar{
 		this.optImportPlain.addActionListener(new HandlingEventsMainWindow(mainwindow));
 		
 		this.optImportCSV = new JMenuItem("CSV");
+		
 		this.optImportXML = new JMenuItem("XML");
+		this.optImportXML.setActionCommand(HandlingEventsMainWindow.LOAD_CONTACT_XML);
+		this.optImportXML.addActionListener(new HandlingEventsMainWindow(mainwindow));
+		
 		this.optImportJSON = new JMenuItem("JSON");
 		this.optImportSer = new JMenuItem("Serializado");
 		

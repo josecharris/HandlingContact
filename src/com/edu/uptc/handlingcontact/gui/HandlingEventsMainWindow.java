@@ -10,6 +10,8 @@ import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
 public class HandlingEventsMainWindow implements ActionListener {
 	
 	public static final String LOAD_CONTACT_PLAIN = "LOAD_CONTACT_PLAIN";
+	public static final String LOAD_CONTACT_XML = "LOAD_CONTACT_XML";
+	
 	private HandlingPersitenceContact handlingPersitenceContact;
 	private MainWindow mainwindow;
 	
@@ -20,16 +22,25 @@ public class HandlingEventsMainWindow implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getActionCommand().equals(LOAD_CONTACT_PLAIN)) {
-			handlingPersitenceContact.setListContacts(new ArrayList<>());
-			handlingPersitenceContact.loadFile(ETypeFile.FILE_PLAIN);
-			this.clearTable();
-			handlingPersitenceContact.getListContacts().forEach(contact -> {
-				Object[] row = new Object[] {contact.getCode(), 
-						contact.getName(), contact.getPhoneNumber(), contact.getEmail()};
-				this.mainwindow.getPanelMiddleMainWindow().addRow(row);
-			});
+		switch(e.getActionCommand()) {
+			case LOAD_CONTACT_PLAIN:
+				this.loadInfoTable(ETypeFile.FILE_PLAIN);
+				break;
+			case LOAD_CONTACT_XML:
+				this.loadInfoTable(ETypeFile.XML);
+				break;
 		}
+	}
+	
+	private void loadInfoTable(ETypeFile eTypeFile) {
+		handlingPersitenceContact.setListContacts(new ArrayList<>());
+		handlingPersitenceContact.loadFile(eTypeFile);
+		this.clearTable();
+		handlingPersitenceContact.getListContacts().forEach(contact -> {
+			Object[] row = new Object[] {contact.getCode(), 
+					contact.getName(), contact.getPhoneNumber(), contact.getEmail()};
+			this.mainwindow.getPanelMiddleMainWindow().addRow(row);
+		});
 	}
 	
 	private void clearTable(){

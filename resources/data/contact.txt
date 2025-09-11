@@ -2,3 +2,4 @@
 002;ANGEL;3227389***;angel.delarosa;Calle XXXX;127.0.0.1
 003;ALEJANDRO;3227389XXX;alejandro.castaneda;Calle XXXX;127.0.0.1
 004;JORGE;322738AAAA;jorge.abril;Calle XXXX;127.0.0.1
+005;JORGE;322738AAAA;jorge.abril;Calle XXXX;127.0.0.1
