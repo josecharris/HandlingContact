@@ -1,5 +1,6 @@
 package com.edu.uptc.handlingcontact.gui;
 
+import javax.swing.ImageIcon;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -28,25 +29,37 @@ public class OptionsBar extends JMenuBar{
 	private JMenuItem optExportJSON;
 	private JMenuItem optExportSer;
 	
-	public OptionsBar(MainWindow mainwindow) {
+	private MainWindow mainWindow;
+	
+	public OptionsBar(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
 		this.optMenuHandlinContact = new JMenu("Administrar Contacto");
 		this.optImport = new JMenu("Importar");
 		this.optExport = new JMenu("Exportar");
 		this.optReport = new JMenu("Informes");
+		
+		
 		this.optCreateContact = new JMenuItem("Crear contacto");
+		/* Asignar el evento */
+		this.optCreateContact.setIcon(new ImageIcon("resources/img/icons/addUser.png"));
+		this.optCreateContact.setActionCommand(HandlingEventsMainWindow.ADD_CONTACT);
+		this.optCreateContact.addActionListener(this.mainWindow.getHandlingEventsMainWindow());
+		
 		this.optUpdateContact = new JMenuItem("Actualizar contacto");
+		this.optUpdateContact.setIcon(new ImageIcon("resources/img/icons/updateUser.png"));
+		
 		this.optFindContactByCode = new JMenuItem("Buscar contacto");
 		
 		this.optImportPlain = new JMenuItem("Archivo plano");
 		/* Se le asigna el evento al importado de archivo plano */
 		this.optImportPlain.setActionCommand(HandlingEventsMainWindow.LOAD_CONTACT_PLAIN);
-		this.optImportPlain.addActionListener(new HandlingEventsMainWindow(mainwindow));
+		this.optImportPlain.addActionListener(mainWindow.getHandlingEventsMainWindow());
 		
 		this.optImportCSV = new JMenuItem("CSV");
 		
 		this.optImportXML = new JMenuItem("XML");
 		this.optImportXML.setActionCommand(HandlingEventsMainWindow.LOAD_CONTACT_XML);
-		this.optImportXML.addActionListener(new HandlingEventsMainWindow(mainwindow));
+		this.optImportXML.addActionListener(mainWindow.getHandlingEventsMainWindow());
 		
 		this.optImportJSON = new JMenuItem("JSON");
 		this.optImportSer = new JMenuItem("Serializado");

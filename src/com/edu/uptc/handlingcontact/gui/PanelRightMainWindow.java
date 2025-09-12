@@ -12,10 +12,16 @@ public class PanelRightMainWindow extends JPanel{
 	private JButton btnUpdate;
 	private JButton btnDelete;
 	
-	public PanelRightMainWindow() {
+	private MainWindow mainWindow;
+	
+	public PanelRightMainWindow(MainWindow mainWindow) {
 		setBorder(new EmptyBorder(200, 15, 0, 15));
 		setLayout(new GridLayout(14, 1));
+		this.mainWindow = mainWindow;
 		this.btnSeeMore = new JButton("Ver más");
+		this.btnSeeMore.setActionCommand(HandlingEventsMainWindow.SEE_MORE_CONTACT);
+		this.btnSeeMore.addActionListener(mainWindow.getHandlingEventsMainWindow());
+		
 		this.btnUpdate = new JButton("Actualizar");
 		this.btnDelete = new JButton("Eliminar");
 		this.add(btnSeeMore);
@@ -46,7 +52,14 @@ public class PanelRightMainWindow extends JPanel{
 	public void setBtnDelete(JButton btnDelete) {
 		this.btnDelete = btnDelete;
 	}
-	
+
+	public MainWindow getMainWindow() {
+		return mainWindow;
+	}
+
+	public void setMainWindow(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
+	}
 	
 
 }

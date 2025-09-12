@@ -1,9 +1,11 @@
 package com.edu.uptc.handlingcontact.gui;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
 
 public class PanelMiddleAddContactWindow extends JPanel {
 	private static final long serialVersionUID = 1L;
@@ -22,7 +24,13 @@ public class PanelMiddleAddContactWindow extends JPanel {
 	private StyledTextField inputIpAddress;
 	
 	public PanelMiddleAddContactWindow() {
-		setLayout(new GridLayout(12, 1));
+		/* Se asigna un color de background */
+		this.setBackground(Color.WHITE);
+		
+		/* Le asigno unos margenes*/
+		this.setBorder(new EmptyBorder(10, 35, 10, 35));
+		
+		setLayout(new GridLayout(14, 1));
 		this.lblCode = new JLabel("Código");
 		this.lblName = new JLabel("Nombre");
 		this.lblPhoneNumber = new JLabel("Número de teléfono");
@@ -36,6 +44,23 @@ public class PanelMiddleAddContactWindow extends JPanel {
 		this.inputEmail = new StyledTextField(Boolean.FALSE);
 		this.inputAddress = new StyledTextField(Boolean.FALSE);
 		this.inputIpAddress = new StyledTextField(Boolean.FALSE);
+		
+		this.add(this.lblCode);
+		this.add(this.inputCode);
+		this.add(this.lblName);
+		this.add(this.inputName);
+		this.add(this.lblPhoneNumber);
+		this.add(this.inputPhoneNumber);
+		this.add(this.lblEmail);
+		this.add(this.inputEmail);
+		this.add(this.lblAddress);
+		this.add(this.inputAddress);
+		this.add(this.lblIpAddress);
+		this.add(this.inputIpAddress);
+		
+		
 	}
+	
+	
 
 }
