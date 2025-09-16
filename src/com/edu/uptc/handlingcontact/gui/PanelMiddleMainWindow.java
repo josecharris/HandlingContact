@@ -12,6 +12,8 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
+
 public class PanelMiddleMainWindow extends JPanel {
 	private static final long serialVersionUID = 1L;
 	
@@ -39,7 +41,9 @@ public class PanelMiddleMainWindow extends JPanel {
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {
 					 int fila = table.getSelectedRow();
-					 //String nombre = table.getValueAt(fila, 1).toString();
+					 String code = table.getValueAt(fila, 0).toString();
+					 System.out.println("Se obtuvo el código a eliminar : " + code);
+					 HandlingPersitenceContact.CODE_CONTACT_SELECTED = code;
 					 mainWindow.getPanelRightMainWindow().setVisible(true);
 				}
 			}

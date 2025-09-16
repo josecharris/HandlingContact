@@ -5,6 +5,9 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 
+import com.edu.uptc.handlingcontact.enums.ETypeFile;
+import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
+
 public class MainWindow extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private OptionsBar optionBar;
@@ -19,6 +22,8 @@ public class MainWindow extends JFrame {
 	/* Clase que va a manejar los eventos de todos los paneles */
 	private HandlingEventsMainWindow handlingEventsMainWindow;
 	
+	private HandlingPersitenceContact handlingPersitenceContact;
+	
 	public MainWindow() {
 		setSize(1024, 690);
 		setLocationRelativeTo(null);
@@ -28,6 +33,8 @@ public class MainWindow extends JFrame {
 		setBackground(Color.WHITE);
 		
 		this.handlingEventsMainWindow = new HandlingEventsMainWindow(this);
+		this.handlingPersitenceContact = new HandlingPersitenceContact();
+		this.handlingPersitenceContact.loadFile(ETypeFile.FILE_PLAIN);
 		
 		this.optionBar = new OptionsBar(this);
 		this.panelNorthMainWindow = new PanelNorthMainWindow();
@@ -98,6 +105,14 @@ public class MainWindow extends JFrame {
 		return handlingEventsMainWindow;
 	}
 
+
+	public HandlingPersitenceContact getHandlingPersitenceContact() {
+		return handlingPersitenceContact;
+	}
+
+	public void setHandlingPersitenceContact(HandlingPersitenceContact handlingPersitenceContact) {
+		this.handlingPersitenceContact = handlingPersitenceContact;
+	}
 
 	public static void main(String[] args) {
 		MainWindow main = new MainWindow();

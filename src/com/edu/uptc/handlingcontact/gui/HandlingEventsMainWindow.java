@@ -17,12 +17,15 @@ public class HandlingEventsMainWindow implements ActionListener {
 	public static final String ADD_CONTACT = "ADD_CONTACT";
 	public static final String SEE_MORE_CONTACT = "SEE_MORE_CONTACT";
 	
+	public static final String DELETE_CONTACT = "DELETE_CONTACT";
+	
 	private HandlingPersitenceContact handlingPersitenceContact;
 	private MainWindow mainwindow;
 	
 	public HandlingEventsMainWindow(MainWindow mainwindow) {
 		this.handlingPersitenceContact = new HandlingPersitenceContact();
 		this.mainwindow = mainwindow;
+		this.handlingPersitenceContact.loadFile(ETypeFile.FILE_PLAIN);
 	}
 
 	@Override
@@ -49,7 +52,21 @@ public class HandlingEventsMainWindow implements ActionListener {
 			case ADD_CONTACT:
 				this.mainwindow.getAddContactWindow().setVisible(true);
 				break;
+			case DELETE_CONTACT:
+				String code = HandlingPersitenceContact.CODE_CONTACT_SELECTED;
+				System.out.println("Voy a eliminar el código : " + code);
+				this.handlingPersitenceContact.deleteContact(code);
+				this.flushData();
+				break;
 		}
+	}
+	
+	private void flushData() {
+		this.handlingPersitenceContact.dumpFile(ETypeFile.FILE_PLAIN);
+		this.handlingPersitenceContact.dumpFile(ETypeFile.CSV);
+		this.handlingPersitenceContact.dumpFile(ETypeFile.XML);
+		this.handlingPersitenceContact.dumpFile(ETypeFile.JSON);
+		this.handlingPersitenceContact.dumpFile(ETypeFile.SER);
 	}
 	
 	private void loadInfoTable(ETypeFile eTypeFile) {

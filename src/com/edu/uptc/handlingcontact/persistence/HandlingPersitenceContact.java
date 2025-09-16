@@ -25,6 +25,7 @@ import com.edu.uptc.handlingcontacts.model.Contact;
 
 public class HandlingPersitenceContact extends FilePlain implements IActionsFile{
 
+	public static String CODE_CONTACT_SELECTED = "";
 	private List<Contact> listContacts;
 	
 	public HandlingPersitenceContact() {
@@ -46,6 +47,20 @@ public class HandlingPersitenceContact extends FilePlain implements IActionsFile
 			}
 		}
 		return null;
+	}
+	
+	public Boolean deleteContact(String code) {
+		int index = -1;
+		for(int i=0; i<this.listContacts.size(); i++) {
+			if(this.listContacts.get(i).getCode().equals(code)) {
+				index = i;
+			}
+		}
+		if(index == -1) {
+			return false;
+		}
+		this.listContacts.remove(index);
+		return true;
 	}
 	
 	@Override
