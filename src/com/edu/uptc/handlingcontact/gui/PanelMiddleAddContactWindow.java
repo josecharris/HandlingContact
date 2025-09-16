@@ -57,8 +57,102 @@ public class PanelMiddleAddContactWindow extends JPanel {
 		this.add(this.inputAddress);
 		this.add(this.lblIpAddress);
 		this.add(this.inputIpAddress);
-		
-		
+	}
+
+	public JLabel getLblCode() {
+		return lblCode;
+	}
+
+	public void setLblCode(JLabel lblCode) {
+		this.lblCode = lblCode;
+	}
+
+	public JLabel getLblName() {
+		return lblName;
+	}
+
+	public void setLblName(JLabel lblName) {
+		this.lblName = lblName;
+	}
+
+	public JLabel getLblPhoneNumber() {
+		return lblPhoneNumber;
+	}
+
+	public void setLblPhoneNumber(JLabel lblPhoneNumber) {
+		this.lblPhoneNumber = lblPhoneNumber;
+	}
+
+	public JLabel getLblEmail() {
+		return lblEmail;
+	}
+
+	public void setLblEmail(JLabel lblEmail) {
+		this.lblEmail = lblEmail;
+	}
+
+	public JLabel getLblAddress() {
+		return lblAddress;
+	}
+
+	public void setLblAddress(JLabel lblAddress) {
+		this.lblAddress = lblAddress;
+	}
+
+	public JLabel getLblIpAddress() {
+		return lblIpAddress;
+	}
+
+	public void setLblIpAddress(JLabel lblIpAddress) {
+		this.lblIpAddress = lblIpAddress;
+	}
+
+	public StyledTextField getInputCode() {
+		return inputCode;
+	}
+
+	public void setInputCode(StyledTextField inputCode) {
+		this.inputCode = inputCode;
+	}
+
+	public StyledTextField getInputName() {
+		return inputName;
+	}
+
+	public void setInputName(StyledTextField inputName) {
+		this.inputName = inputName;
+	}
+
+	public StyledTextField getInputPhoneNumber() {
+		return inputPhoneNumber;
+	}
+
+	public void setInputPhoneNumber(StyledTextField inputPhoneNumber) {
+		this.inputPhoneNumber = inputPhoneNumber;
+	}
+
+	public StyledTextField getInputEmail() {
+		return inputEmail;
+	}
+
+	public void setInputEmail(StyledTextField inputEmail) {
+		this.inputEmail = inputEmail;
+	}
+
+	public StyledTextField getInputAddress() {
+		return inputAddress;
+	}
+
+	public void setInputAddress(StyledTextField inputAddress) {
+		this.inputAddress = inputAddress;
+	}
+
+	public StyledTextField getInputIpAddress() {
+		return inputIpAddress;
+	}
+
+	public void setInputIpAddress(StyledTextField inputIpAddress) {
+		this.inputIpAddress = inputIpAddress;
 	}
 	
 	

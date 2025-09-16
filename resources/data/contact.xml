@@ -2,33 +2,17 @@
 <contact>
 	<name>JOSE</name>
 	<code>001</code>
-	<phoneNumber>3227389121</phoneNumber>
-	<email>jose.charris</email>
-	<address>Calle 20</address>
+	<phoneNumber>02030202</phoneNumber>
+	<email>jsjsjd|@gmail.com</email>
+	<address>CALLE 132</address>
 	<idAddress>127.0.0.1</idAddress>
 </contact>
 <contact>
-	<name>ANGEL</name>
+	<name>JUAN</name>
 	<code>002</code>
-	<phoneNumber>3227389***</phoneNumber>
-	<email>angel.delarosa</email>
-	<address>Calle XXXX</address>
-	<idAddress>127.0.0.1</idAddress>
-</contact>
-<contact>
-	<name>ALEJANDRO</name>
-	<code>003</code>
-	<phoneNumber>3227389XXX</phoneNumber>
-	<email>alejandro.castaneda</email>
-	<address>Calle XXXX</address>
-	<idAddress>127.0.0.1</idAddress>
-</contact>
-<contact>
-	<name>JORGE</name>
-	<code>004</code>
-	<phoneNumber>322738AAAA</phoneNumber>
-	<email>jorge.abril</email>
-	<address>Calle XXXX</address>
+	<phoneNumber>2039392</phoneNumber>
+	<email>jasjdjj@gmail.com</email>
+	<address>CALLE 1234</address>
 	<idAddress>127.0.0.1</idAddress>
 </contact>
 </XML>

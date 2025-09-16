@@ -1,6 +1,7 @@
 package com.edu.uptc.handlingcontact.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 
@@ -23,6 +24,8 @@ public class MainWindow extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		setBackground(Color.WHITE);
 		
 		this.handlingEventsMainWindow = new HandlingEventsMainWindow(this);
 		

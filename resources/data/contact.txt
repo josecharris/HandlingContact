@@ -1,5 +1,2 @@
-001;JOSE;3227389121;jose.charris;Calle 20;127.0.0.1
-002;ANGEL;3227389***;angel.delarosa;Calle XXXX;127.0.0.1
-003;ALEJANDRO;3227389XXX;alejandro.castaneda;Calle XXXX;127.0.0.1
-004;JORGE;322738AAAA;jorge.abril;Calle XXXX;127.0.0.1
-005;JORGE;322738AAAA;jorge.abril;Calle XXXX;127.0.0.1
+001;JOSE;02030202;jsjsjd|@gmail.com;CALLE 132;127.0.0.1
+002;JUAN;2039392;jasjdjj@gmail.com;CALLE 1234;127.0.0.1

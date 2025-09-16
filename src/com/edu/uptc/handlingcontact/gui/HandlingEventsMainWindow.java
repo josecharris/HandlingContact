@@ -10,10 +10,11 @@ import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
 public class HandlingEventsMainWindow implements ActionListener {
 	
 	public static final String LOAD_CONTACT_PLAIN = "LOAD_CONTACT_PLAIN";
+	public static final String LOAD_CONTACT_CSV = "LOAD_CONTACT_CSV";
 	public static final String LOAD_CONTACT_XML = "LOAD_CONTACT_XML";
-	
+	public static final String LOAD_CONTACT_JSON = "LOAD_CONTACT_JSON";
+	public static final String LOAD_CONTACT_SERIALIZATE = "LOAD_CONTACT_SERIALIZATE";
 	public static final String ADD_CONTACT = "ADD_CONTACT";
-	
 	public static final String SEE_MORE_CONTACT = "SEE_MORE_CONTACT";
 	
 	private HandlingPersitenceContact handlingPersitenceContact;
@@ -30,8 +31,17 @@ public class HandlingEventsMainWindow implements ActionListener {
 			case LOAD_CONTACT_PLAIN:
 				this.loadInfoTable(ETypeFile.FILE_PLAIN);
 				break;
+			case LOAD_CONTACT_CSV:
+				this.loadInfoTable(ETypeFile.CSV);
+				break;
 			case LOAD_CONTACT_XML:
 				this.loadInfoTable(ETypeFile.XML);
+				break;
+			case LOAD_CONTACT_JSON:
+				this.loadInfoTable(ETypeFile.JSON);
+				break;
+			case LOAD_CONTACT_SERIALIZATE:
+				this.loadInfoTable(ETypeFile.SER);
 				break;
 			case SEE_MORE_CONTACT:
 				this.mainwindow.getAddContactWindow().setVisible(true);

@@ -1,5 +1,6 @@
 package com.edu.uptc.handlingcontact.gui;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 
 import javax.swing.JPanel;
@@ -21,21 +22,19 @@ public class PanelMiddleMainWindow extends JPanel {
 	public PanelMiddleMainWindow(MainWindow mainWindow) {
 		setLayout(new GridLayout(1, 1));
 		setBorder(new EmptyBorder(40, 10, 10, 10));
+		setBackground(Color.WHITE);
 		this.mainWindow = mainWindow;
 		this.buildComponents();
 		this.addComponents();
 	}
 	
-	
 	private void buildComponents() {
 		String[] titles = {"Código " , "Nombre " , "Número teléfono", "Email"};
 		dtm = new DefaultTableModel(titles, 0);
 		table = new JTable(dtm);
-		
+		table.setBackground(Color.WHITE);
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
 		this.table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {

@@ -11,7 +11,6 @@ public class PanelRightMainWindow extends JPanel{
 	private JButton btnSeeMore;
 	private JButton btnUpdate;
 	private JButton btnDelete;
-	
 	private MainWindow mainWindow;
 	
 	public PanelRightMainWindow(MainWindow mainWindow) {

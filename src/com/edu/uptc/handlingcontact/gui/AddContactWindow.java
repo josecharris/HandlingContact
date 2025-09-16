@@ -31,7 +31,7 @@ public class AddContactWindow extends JFrame {
 		setLayout(new BorderLayout());
 		
 		this.panelMiddleAddContactWindow = new PanelMiddleAddContactWindow();
-		this.panelSouthAddWindow = new PanelSouthAddWindow();
+		this.panelSouthAddWindow = new PanelSouthAddWindow(this);
 		
 		JPanel panelNorth = new JPanel();
 		
@@ -48,11 +48,29 @@ public class AddContactWindow extends JFrame {
 		this.add(this.panelMiddleAddContactWindow, BorderLayout.CENTER);
 		this.add(panelSouthAddWindow, BorderLayout.SOUTH);
 	}
-	
-	public static void main(String[] args) {
-		AddContactWindow addContactWindow = new AddContactWindow();
-		addContactWindow.setVisible(true);
+
+
+	public PanelMiddleAddContactWindow getPanelMiddleAddContactWindow() {
+		return panelMiddleAddContactWindow;
 	}
+
+
+	public void setPanelMiddleAddContactWindow(PanelMiddleAddContactWindow panelMiddleAddContactWindow) {
+		this.panelMiddleAddContactWindow = panelMiddleAddContactWindow;
+	}
+
+
+	public PanelSouthAddWindow getPanelSouthAddWindow() {
+		return panelSouthAddWindow;
+	}
+
+
+	public void setPanelSouthAddWindow(PanelSouthAddWindow panelSouthAddWindow) {
+		this.panelSouthAddWindow = panelSouthAddWindow;
+	}
+	
+	
+	
 	
 	
 }
