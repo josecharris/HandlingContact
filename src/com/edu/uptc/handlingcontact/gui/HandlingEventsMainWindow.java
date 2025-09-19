@@ -2,9 +2,12 @@ package com.edu.uptc.handlingcontact.gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.edu.uptc.handlingcontact.enums.ETypeFile;
 import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
@@ -26,6 +29,8 @@ public class HandlingEventsMainWindow implements ActionListener {
 	public static final String SHOW_WINDOW_FIND_CONTACT = "SHOW_WINDOW_FIND_CONTACT";
 	public static final String HIDE_WINDOW_FIND_CONTACT = "HIDE_WINDOW_FIND_CONTACT";
 	public static final String FIND_CONTACT_BY_ATTRIBUTE = "FIND_CONTACT_BY_ATTRIBUTE";
+	
+	public static final String EXPORT_CONTACT_FILE_PLAIN = "EXPORT_CONTACT_FILE_PLAIN";
 	
 	private MainWindow mainwindow;
 	
@@ -103,6 +108,18 @@ public class HandlingEventsMainWindow implements ActionListener {
 				Contact contactUpdate = new Contact(codeSelected, name, phoneNumber, email);
 				this.mainwindow.getHandlingPersitenceContact().updateContact(contactUpdate);
 				this.flushData();
+				break;
+			case EXPORT_CONTACT_FILE_PLAIN:
+				JFileChooser fileChooser = new JFileChooser();
+				FileNameExtensionFilter filterFile = new FileNameExtensionFilter("Archivos de texto (.txt)", "txt");
+				fileChooser.setFileFilter(filterFile);
+				
+				int result = fileChooser.showDialog(null, "Exportar archivo plano");
+				if(result == JFileChooser.APPROVE_OPTION) {
+					File selectedFile = fileChooser.getSelectedFile();
+					this.mainwindow.getHandlingPersitenceContact().exportFile(ETypeFile.FILE_PLAIN, 
+							selectedFile.getAbsolutePath());
+				}
 				break;
 		}
 	}

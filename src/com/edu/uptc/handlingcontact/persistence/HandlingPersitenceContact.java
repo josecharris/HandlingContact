@@ -204,11 +204,29 @@ public class HandlingPersitenceContact extends FilePlain implements IActionsFile
 	public void dumpFile(ETypeFile eTypeFile) {
 		if(eTypeFile.equals(ETypeFile.FILE_PLAIN)) {
 			String nameFile = config.getNameFileTXT();
-			dumpFilePlain(nameFile);
+			dumpFilePlain(nameFile, null);
 		}
 		if(eTypeFile.equals(ETypeFile.CSV)) {
 			String nameFile = config.getNameFileCSV();
-			dumpFilePlain(nameFile);
+			dumpFilePlain(nameFile, null);
+		}
+		if(eTypeFile.equals(ETypeFile.JSON)) {
+			dumpFileJSON();
+		}
+		if(eTypeFile.equals(ETypeFile.XML)) {
+			dumpFileXML();
+		}
+		if(eTypeFile.equals(ETypeFile.SER)) {
+			this.dumpFileSerializate();
+		}
+	}
+	
+	public void exportFile(ETypeFile eTypeFile, String fullPath) {
+		if(eTypeFile.equals(ETypeFile.FILE_PLAIN)) {
+			dumpFilePlain(null, fullPath);
+		}
+		if(eTypeFile.equals(ETypeFile.CSV)) {
+			dumpFilePlain(null, fullPath);
 		}
 		if(eTypeFile.equals(ETypeFile.JSON)) {
 			dumpFileJSON();
@@ -296,10 +314,15 @@ public class HandlingPersitenceContact extends FilePlain implements IActionsFile
 		});
 	}
 
-	private void dumpFilePlain(String nameFile) {
+	private void dumpFilePlain(String nameFile, String fullPath) {
 		StringBuilder rutaArchivo = new StringBuilder();
-		rutaArchivo.append(config.getPathFiles());
-		rutaArchivo.append(nameFile);
+		if(fullPath != null) {
+			rutaArchivo.append(fullPath);
+		}else {
+			rutaArchivo.append(config.getPathFiles());
+			rutaArchivo.append(nameFile);
+		}
+		
 		List<String> records = new ArrayList<>();
 		for(Contact student : this.listContacts){
 			StringBuilder contentStudent = new StringBuilder();

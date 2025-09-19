@@ -85,6 +85,8 @@ public class OptionsBar extends JMenuBar{
 		this.optImportSer.setIcon(new ImageIcon("resources/img/icons/fileSer.png"));
 		
 		this.optExportPlain = new JMenuItem("Archivo plano");
+		this.optExportPlain.setActionCommand(HandlingEventsMainWindow.EXPORT_CONTACT_FILE_PLAIN);
+		this.optExportPlain.addActionListener(mainWindow.getHandlingEventsMainWindow());
 		this.optExportPlain.setIcon(new ImageIcon("resources/img/icons/filePlain.png"));
 		
 		this.optExportCSV = new JMenuItem("CSV");
