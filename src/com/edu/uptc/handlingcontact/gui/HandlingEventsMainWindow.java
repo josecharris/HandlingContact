@@ -18,9 +18,10 @@ public class HandlingEventsMainWindow implements ActionListener {
 	public static final String LOAD_CONTACT_JSON = "LOAD_CONTACT_JSON";
 	public static final String LOAD_CONTACT_SERIALIZATE = "LOAD_CONTACT_SERIALIZATE";
 	public static final String ADD_CONTACT = "ADD_CONTACT";
-	public static final String SEE_MORE_CONTACT = "SEE_MORE_CONTACT";
 	
+	public static final String SEE_MORE_CONTACT = "SEE_MORE_CONTACT";
 	public static final String DELETE_CONTACT = "DELETE_CONTACT";
+	public static final String UPDATE_CONTACT = "UPDATE_CONTACT";
 	
 	public static final String SHOW_WINDOW_FIND_CONTACT = "SHOW_WINDOW_FIND_CONTACT";
 	public static final String HIDE_WINDOW_FIND_CONTACT = "HIDE_WINDOW_FIND_CONTACT";
@@ -51,7 +52,17 @@ public class HandlingEventsMainWindow implements ActionListener {
 				this.loadInfoTable(ETypeFile.SER);
 				break;
 			case SEE_MORE_CONTACT:
-				
+				String code = HandlingPersitenceContact.CODE_CONTACT_SELECTED;
+				Contact contactSeeMore = this.mainwindow.getHandlingPersitenceContact().findContactByIndex(0, code);
+				StringBuilder content = new StringBuilder();
+				content.append("Código: " + contactSeeMore.getCode() + "\n");
+				content.append("Nombre: " + contactSeeMore.getName() + "\n");
+				content.append("Número de teléfono: " + contactSeeMore.getPhoneNumber() + "\n");
+				content.append("Email: " + contactSeeMore.getEmail() + "\n");
+				content.append("Dirección: " + contactSeeMore.getAddress() + "\n");
+				content.append("Dirección IP: " + contactSeeMore.getIpAddress() + "\n");
+				JOptionPane.showMessageDialog(null, content.toString(), "Información contacto", 
+						JOptionPane.DEFAULT_OPTION);
 				break;
 			case ADD_CONTACT:
 				this.mainwindow.getAddContactWindow().setVisible(true);
@@ -61,8 +72,8 @@ public class HandlingEventsMainWindow implements ActionListener {
 						"¿Estás seguro de que deseas eliminar el registro?",
 						"Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				if(option == JOptionPane.YES_OPTION) {
-					String code = HandlingPersitenceContact.CODE_CONTACT_SELECTED;
-					this.mainwindow.getHandlingPersitenceContact().deleteContact(code);
+					this.mainwindow.getHandlingPersitenceContact().deleteContact(
+							HandlingPersitenceContact.CODE_CONTACT_SELECTED);
 					this.flushData();
 					this.loadInfoTable(ETypeFile.CSV);
 				}
@@ -81,6 +92,17 @@ public class HandlingEventsMainWindow implements ActionListener {
 				Object[] row = new Object[] {contact.getCode(), 
 						contact.getName(), contact.getPhoneNumber(), contact.getEmail()};
 				this.mainwindow.getPanelMiddleMainWindow().addRow(row);
+				break;
+			case UPDATE_CONTACT:
+				System.out.println("Actualizar");
+				int fila = this.mainwindow.getPanelMiddleMainWindow().getTable().getSelectedRow();
+				String codeSelected = this.mainwindow.getPanelMiddleMainWindow().getTable().getValueAt(fila, 0).toString();
+				String name = this.mainwindow.getPanelMiddleMainWindow().getTable().getValueAt(fila, 1).toString();
+				String phoneNumber = this.mainwindow.getPanelMiddleMainWindow().getTable().getValueAt(fila, 2).toString();
+				String email = this.mainwindow.getPanelMiddleMainWindow().getTable().getValueAt(fila, 3).toString();
+				Contact contactUpdate = new Contact(codeSelected, name, phoneNumber, email);
+				this.mainwindow.getHandlingPersitenceContact().updateContact(contactUpdate);
+				this.flushData();
 				break;
 		}
 	}

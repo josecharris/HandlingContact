@@ -13,6 +13,16 @@ public class Contact implements Serializable{
 	
 	public Contact() {}
 	
+	public Contact(String code, String name, String phoneNumber, String email) {
+		super();
+		this.code = code;
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+		this.email = email;
+	}
+
+
+
 	public Contact(String code, String name, String phoneNumber, String email, String address, String ipAddress) {
 		this.code = code;
 		this.name = name;

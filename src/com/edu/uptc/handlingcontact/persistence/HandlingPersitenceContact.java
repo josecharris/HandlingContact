@@ -40,6 +40,25 @@ public class HandlingPersitenceContact extends FilePlain implements IActionsFile
 		return false;
 	}
 	
+	public Boolean updateContact(Contact newContact) {
+		Contact actualContact = new Contact();
+		int index = -1;
+		for(int i=0; i<this.listContacts.size(); i++) {
+			if(this.listContacts.get(i).getCode().equals(newContact.getCode())) {
+				actualContact = this.listContacts.get(i);
+				index = i;
+			}
+		}
+		if(index == -1) {
+			return false;
+		}
+		actualContact.setName(newContact.getName());
+		actualContact.setPhoneNumber(newContact.getPhoneNumber());
+		actualContact.setEmail(newContact.getEmail());
+		this.listContacts.set(index, actualContact);
+		return true;
+	}
+	
 	public Contact findContactByIndex(int index, String value) {
 		switch(index) {
 			case CommonConstants.INDEX_CODE:

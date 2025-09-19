@@ -22,6 +22,9 @@ public class PanelRightMainWindow extends JPanel{
 		this.btnSeeMore.addActionListener(mainWindow.getHandlingEventsMainWindow());
 		
 		this.btnUpdate = new JButton("Actualizar");
+		this.btnUpdate.setActionCommand(HandlingEventsMainWindow.UPDATE_CONTACT);
+		this.btnUpdate.addActionListener(mainWindow.getHandlingEventsMainWindow());
+		
 		this.btnDelete = new JButton("Eliminar");
 		this.btnDelete.setActionCommand(HandlingEventsMainWindow.DELETE_CONTACT);
 		this.btnDelete.addActionListener(mainWindow.getHandlingEventsMainWindow());

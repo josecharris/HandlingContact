@@ -1,18 +1,18 @@
 <XML version="1.0" encoding="UTF-8">
 <contact>
-	<name>JOSE</name>
+	<name>JOSE ANGEL</name>
 	<code>001</code>
-	<phoneNumber>23232</phoneNumber>
-	<email>jose@gmail.com</email>
-	<address>Calle</address>
+	<phoneNumber>987654321</phoneNumber>
+	<email>jose.angel@gmail.com</email>
+	<address>CALLE 40</address>
 	<idAddress>127.0.0.1</idAddress>
 </contact>
 <contact>
-	<name>jjdjsjsj</name>
-	<code>ajsjsj</code>
-	<phoneNumber>jjsjsj</phoneNumber>
-	<email>jasjsj</email>
-	<address>jsjdj</address>
-	<idAddress>jsjdj</idAddress>
+	<name>JUAN CARLOS</name>
+	<code>002</code>
+	<phoneNumber>32145678</phoneNumber>
+	<email>juan.carlos@gmail.com</email>
+	<address>CALLE 60</address>
+	<idAddress>127.0.0.1</idAddress>
 </contact>
 </XML>

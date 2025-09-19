@@ -114,8 +114,6 @@ public class MainWindow extends JFrame {
 	public void setHandlingPersitenceContact(HandlingPersitenceContact handlingPersitenceContact) {
 		this.handlingPersitenceContact = handlingPersitenceContact;
 	}
-	
-	
 
 	public FindContactWindow getFindContactWindow() {
 		return findContactWindow;
