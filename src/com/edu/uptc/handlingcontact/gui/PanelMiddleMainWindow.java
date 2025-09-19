@@ -42,7 +42,6 @@ public class PanelMiddleMainWindow extends JPanel {
 				if (!e.getValueIsAdjusting() && table.getSelectedRow() != -1) {
 					 int fila = table.getSelectedRow();
 					 String code = table.getValueAt(fila, 0).toString();
-					 System.out.println("Se obtuvo el código a eliminar : " + code);
 					 HandlingPersitenceContact.CODE_CONTACT_SELECTED = code;
 					 mainWindow.getPanelRightMainWindow().setVisible(true);
 				}

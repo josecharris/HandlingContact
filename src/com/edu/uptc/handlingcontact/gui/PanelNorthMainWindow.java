@@ -14,8 +14,10 @@ public class PanelNorthMainWindow extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private JLabel lblTitleMainWindow;
 	private JButton btnFindBy;
+	private MainWindow mainWindow;
 	
-	public PanelNorthMainWindow() {
+	public PanelNorthMainWindow(MainWindow mainWindow) {
+		this.mainWindow = mainWindow;
 		setBackground(Color.WHITE);
 		this.lblTitleMainWindow = new JLabel("ADMINISTRACIÓN DE CONTACTOS");
 		Font actualFont = this.lblTitleMainWindow.getFont();
@@ -24,6 +26,10 @@ public class PanelNorthMainWindow extends JPanel{
 		this.setBorder(new EmptyBorder(20, 0, 0, 0));
 		this.btnFindBy = new JButton("Buscar por:");
 		this.btnFindBy.setIcon(new ImageIcon("resources/img/icons/findBy.png"));
+		this.btnFindBy.setActionCommand(HandlingEventsMainWindow.SHOW_WINDOW_FIND_CONTACT);
+		this.btnFindBy.addActionListener(mainWindow.getHandlingEventsMainWindow());
+		
+		
 		this.lblTitleMainWindow.setFont(fontTitle);
 		this.lblTitleMainWindow.setBorder(new EmptyBorder(0, 30, 0, 80));
 		this.setLayout(new FlowLayout());

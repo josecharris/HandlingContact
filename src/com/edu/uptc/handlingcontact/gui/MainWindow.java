@@ -18,10 +18,11 @@ public class MainWindow extends JFrame {
 	
 	/* Definimos la pantalla auxiliar */
 	private AddContactWindow addContactWindow;
+	private FindContactWindow findContactWindow;
 	
-	/* Clase que va a manejar los eventos de todos los paneles */
+	
+	/* Clase que va a manejar los eventos de la vista de main windows */
 	private HandlingEventsMainWindow handlingEventsMainWindow;
-	
 	private HandlingPersitenceContact handlingPersitenceContact;
 	
 	public MainWindow() {
@@ -29,7 +30,6 @@ public class MainWindow extends JFrame {
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 		setBackground(Color.WHITE);
 		
 		this.handlingEventsMainWindow = new HandlingEventsMainWindow(this);
@@ -37,7 +37,7 @@ public class MainWindow extends JFrame {
 		this.handlingPersitenceContact.loadFile(ETypeFile.FILE_PLAIN);
 		
 		this.optionBar = new OptionsBar(this);
-		this.panelNorthMainWindow = new PanelNorthMainWindow();
+		this.panelNorthMainWindow = new PanelNorthMainWindow(this);
 		this.panelMiddleMainWindow = new PanelMiddleMainWindow(this);
 		this.panelBottomMainWindow = new PanelBottomMainWindow();
 		this.panelRightMainWindow = new PanelRightMainWindow(this);
@@ -50,7 +50,8 @@ public class MainWindow extends JFrame {
 		this.add(panelBottomMainWindow, BorderLayout.SOUTH);
 		this.add(panelRightMainWindow, BorderLayout.EAST);
 		
-		this.addContactWindow = new AddContactWindow();
+		this.addContactWindow = new AddContactWindow(this);
+		this.findContactWindow = new FindContactWindow(this);
 	}
 	
 	public OptionsBar getOptionBar() {
@@ -112,6 +113,16 @@ public class MainWindow extends JFrame {
 
 	public void setHandlingPersitenceContact(HandlingPersitenceContact handlingPersitenceContact) {
 		this.handlingPersitenceContact = handlingPersitenceContact;
+	}
+	
+	
+
+	public FindContactWindow getFindContactWindow() {
+		return findContactWindow;
+	}
+
+	public void setFindContactWindow(FindContactWindow findContactWindow) {
+		this.findContactWindow = findContactWindow;
 	}
 
 	public static void main(String[] args) {

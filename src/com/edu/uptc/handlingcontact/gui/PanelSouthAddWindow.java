@@ -14,7 +14,7 @@ public class PanelSouthAddWindow extends JPanel{
 	private JButton btnAccept;
 	private HandlingEventsAddWindow handlingEventsAddWindow;
 	
-	public PanelSouthAddWindow(AddContactWindow addContactWindow) {
+	public PanelSouthAddWindow(MainWindow mainWindow) {
 		
 		setLayout(new FlowLayout());
 		
@@ -26,7 +26,7 @@ public class PanelSouthAddWindow extends JPanel{
 		this.btnBack = new JButton("Volver");
 		this.btnBack.setIcon(new ImageIcon("resources/img/icons/back.png"));
 		this.btnBack.setActionCommand(HandlingEventsAddWindow.GET_BACK);
-		handlingEventsAddWindow = new HandlingEventsAddWindow(addContactWindow);
+		handlingEventsAddWindow = new HandlingEventsAddWindow(mainWindow);
 		this.btnBack.addActionListener(handlingEventsAddWindow);
 		
 		this.btnAccept = new JButton("Aceptar");

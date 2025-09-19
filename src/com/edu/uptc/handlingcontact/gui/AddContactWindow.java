@@ -14,9 +14,8 @@ public class AddContactWindow extends JFrame {
 	private JLabel lblTitle;
 	private PanelMiddleAddContactWindow panelMiddleAddContactWindow;
 	private PanelSouthAddWindow panelSouthAddWindow;
-	
 
-	public AddContactWindow() {
+	public AddContactWindow(MainWindow mainWindow) {
 		/* Tamaño */
 		setSize(600, 750);
 		/* Centrar */
@@ -29,9 +28,8 @@ public class AddContactWindow extends JFrame {
 		
 		/* Layout*/
 		setLayout(new BorderLayout());
-		
 		this.panelMiddleAddContactWindow = new PanelMiddleAddContactWindow();
-		this.panelSouthAddWindow = new PanelSouthAddWindow(this);
+		this.panelSouthAddWindow = new PanelSouthAddWindow(mainWindow);
 		
 		JPanel panelNorth = new JPanel();
 		
@@ -68,9 +66,15 @@ public class AddContactWindow extends JFrame {
 	public void setPanelSouthAddWindow(PanelSouthAddWindow panelSouthAddWindow) {
 		this.panelSouthAddWindow = panelSouthAddWindow;
 	}
-	
-	
-	
-	
+
+
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+
+
+	public void setLblTitle(JLabel lblTitle) {
+		this.lblTitle = lblTitle;
+	}
 	
 }

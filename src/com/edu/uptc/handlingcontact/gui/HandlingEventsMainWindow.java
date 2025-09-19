@@ -4,8 +4,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.edu.uptc.handlingcontact.enums.ETypeFile;
 import com.edu.uptc.handlingcontact.persistence.HandlingPersitenceContact;
+import com.edu.uptc.handlingcontacts.model.Contact;
 
 public class HandlingEventsMainWindow implements ActionListener {
 	
@@ -19,13 +22,14 @@ public class HandlingEventsMainWindow implements ActionListener {
 	
 	public static final String DELETE_CONTACT = "DELETE_CONTACT";
 	
-	private HandlingPersitenceContact handlingPersitenceContact;
+	public static final String SHOW_WINDOW_FIND_CONTACT = "SHOW_WINDOW_FIND_CONTACT";
+	public static final String HIDE_WINDOW_FIND_CONTACT = "HIDE_WINDOW_FIND_CONTACT";
+	public static final String FIND_CONTACT_BY_ATTRIBUTE = "FIND_CONTACT_BY_ATTRIBUTE";
+	
 	private MainWindow mainwindow;
 	
 	public HandlingEventsMainWindow(MainWindow mainwindow) {
-		this.handlingPersitenceContact = new HandlingPersitenceContact();
 		this.mainwindow = mainwindow;
-		this.handlingPersitenceContact.loadFile(ETypeFile.FILE_PLAIN);
 	}
 
 	@Override
@@ -47,33 +51,53 @@ public class HandlingEventsMainWindow implements ActionListener {
 				this.loadInfoTable(ETypeFile.SER);
 				break;
 			case SEE_MORE_CONTACT:
-				this.mainwindow.getAddContactWindow().setVisible(true);
+				
 				break;
 			case ADD_CONTACT:
 				this.mainwindow.getAddContactWindow().setVisible(true);
 				break;
 			case DELETE_CONTACT:
-				String code = HandlingPersitenceContact.CODE_CONTACT_SELECTED;
-				System.out.println("Voy a eliminar el código : " + code);
-				this.handlingPersitenceContact.deleteContact(code);
-				this.flushData();
+				int option = JOptionPane.showConfirmDialog(null, 
+						"¿Estás seguro de que deseas eliminar el registro?",
+						"Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				if(option == JOptionPane.YES_OPTION) {
+					String code = HandlingPersitenceContact.CODE_CONTACT_SELECTED;
+					this.mainwindow.getHandlingPersitenceContact().deleteContact(code);
+					this.flushData();
+					this.loadInfoTable(ETypeFile.CSV);
+				}
+				break;
+			case SHOW_WINDOW_FIND_CONTACT:
+				this.mainwindow.getFindContactWindow().setVisible(true);
+				break;
+			case HIDE_WINDOW_FIND_CONTACT:
+				this.mainwindow.getFindContactWindow().setVisible(false);
+				break;
+			case FIND_CONTACT_BY_ATTRIBUTE:
+				int index = mainwindow.getFindContactWindow().getComboAttribute().getSelectedIndex();
+				String value = mainwindow.getFindContactWindow().getTxtValue().getText();
+				Contact contact = mainwindow.getHandlingPersitenceContact().findContactByIndex(index, value);
+				this.clearTable();
+				Object[] row = new Object[] {contact.getCode(), 
+						contact.getName(), contact.getPhoneNumber(), contact.getEmail()};
+				this.mainwindow.getPanelMiddleMainWindow().addRow(row);
 				break;
 		}
 	}
 	
 	private void flushData() {
-		this.handlingPersitenceContact.dumpFile(ETypeFile.FILE_PLAIN);
-		this.handlingPersitenceContact.dumpFile(ETypeFile.CSV);
-		this.handlingPersitenceContact.dumpFile(ETypeFile.XML);
-		this.handlingPersitenceContact.dumpFile(ETypeFile.JSON);
-		this.handlingPersitenceContact.dumpFile(ETypeFile.SER);
+		this.mainwindow.getHandlingPersitenceContact().dumpFile(ETypeFile.FILE_PLAIN);
+		this.mainwindow.getHandlingPersitenceContact().dumpFile(ETypeFile.CSV);
+		this.mainwindow.getHandlingPersitenceContact().dumpFile(ETypeFile.XML);
+		this.mainwindow.getHandlingPersitenceContact().dumpFile(ETypeFile.JSON);
+		this.mainwindow.getHandlingPersitenceContact().dumpFile(ETypeFile.SER);
 	}
 	
 	private void loadInfoTable(ETypeFile eTypeFile) {
-		handlingPersitenceContact.setListContacts(new ArrayList<>());
-		handlingPersitenceContact.loadFile(eTypeFile);
+		this.mainwindow.getHandlingPersitenceContact().setListContacts(new ArrayList<>());
+		this.mainwindow.getHandlingPersitenceContact().loadFile(eTypeFile);
 		this.clearTable();
-		handlingPersitenceContact.getListContacts().forEach(contact -> {
+		this.mainwindow.getHandlingPersitenceContact().getListContacts().forEach(contact -> {
 			Object[] row = new Object[] {contact.getCode(), 
 					contact.getName(), contact.getPhoneNumber(), contact.getEmail()};
 			this.mainwindow.getPanelMiddleMainWindow().addRow(row);
